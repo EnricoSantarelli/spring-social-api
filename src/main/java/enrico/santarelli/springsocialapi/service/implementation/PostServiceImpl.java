@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import enrico.santarelli.springsocialapi.model.Post;
 import enrico.santarelli.springsocialapi.repository.PostRepository;
 import enrico.santarelli.springsocialapi.service.PostService;
 
+@Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
-    PostRepository postRepository;
+    private PostRepository postRepository;
 
     @Override
     public void createPost(Post post) {
@@ -24,7 +26,7 @@ public class PostServiceImpl implements PostService {
         List<Post> posts = new ArrayList<Post>();
         postRepository.findAll().forEach(
                 (e) -> {
-                    if (e.getAccount().getId() == id) {
+                    if (e.getAccountId() == id) {
                         posts.add(e);
                     }
                 });

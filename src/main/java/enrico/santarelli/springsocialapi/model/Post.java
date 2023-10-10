@@ -29,8 +29,7 @@ public class Post {
     @Column(nullable = false)
     private Date date;
 
-    @ManyToOne
-    private Account account;
+    private Long accountId;
 
     public Long getId() {
         return id;
@@ -56,12 +55,12 @@ public class Post {
         this.date = date;
     }
 
-    public Account getAccount() {
-        return account;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
 }
